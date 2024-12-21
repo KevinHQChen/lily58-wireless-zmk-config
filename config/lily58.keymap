@@ -34,11 +34,22 @@
             keep-mods = <(MOD_LALT)>;
         };
 
-        switch_layers: switch_layers {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SWITCH_LAYERS";
+        bkspce_or_to_nav_lyr: bkspce_or_to_nav_lyr {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BKSPCE_OR_TO_NAV_LYR";
+            bindings = <&kp BACKSPACE>, <&to 2>;
+
             #binding-cells = <0>;
-            bindings = <&mo 5>, <&tog 2>, <&tog 3>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        del_or_to_keypad_lyr: del_or_to_keypad_lyr {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DEL_OR_TO_KEYPAD_LYR";
+            bindings = <&kp DEL>, <&to 3>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT)>;
         };
     };
 
@@ -55,11 +66,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&ESC_or_alt_grave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                        &kp N6  &kp N7  &kp N8     &kp N9   &kp N0         &kp BACKSPACE
-&kp TAB            &kp Q   &kp W   &kp F     &kp P     &kp B                         &kp J   &kp L   &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&kp LCTRL          &kp A   &kp R   &kp S     &kp T     &kp G                         &kp M   &kp N   &kp E      &kp I    &kp O          &kp SQT
-&kp LSHIFT         &kp Z   &kp X   &kp C     &kp D     &kp V   &tog 1       &to 0    &kp K   &kp H   &kp COMMA  &kp DOT  &kp FSLH       &kp RSHFT
-                                   &kp LALT  &kp LGUI  &mo 4   &kp SPACE    &kp RET  &mo 5   &to 2   &to 3
+&ESC_or_alt_grave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                        &kp N6  &kp N7                 &kp N8                 &kp N9   &kp N0         &kp ESC
+&kp TAB            &kp Q   &kp W   &kp F     &kp P     &kp B                         &kp J   &kp L                  &kp U                  &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&kp LCTRL          &kp A   &kp R   &kp S     &kp T     &kp G                         &kp M   &kp N                  &kp E                  &kp I    &kp O          &kp SQT
+&kp LSHIFT         &kp Z   &kp X   &kp C     &kp D     &kp V   &tog 1       &to 0    &kp K   &kp H                  &kp COMMA              &kp DOT  &kp FSLH       &kp RSHFT
+                                   &kp LALT  &kp LGUI  &mo 4   &kp SPACE    &kp RET  &mo 5   &bkspce_or_to_nav_lyr  &del_or_to_keypad_lyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
