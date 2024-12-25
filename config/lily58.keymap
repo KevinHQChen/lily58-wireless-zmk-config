@@ -124,11 +124,11 @@
         rnav_layer {
             display-name = "rnav";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp END        &kp INS   &kp HOME     &kp C_PP    &kp C_VOLUME_UP
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp PAGE_DOWN  &kp UP    &kp PAGE_UP  &kp C_MUTE  &kp C_VOLUME_DOWN
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp LEFT       &kp DOWN  &kp RIGHT    &trans      &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans         &trans    &trans       &trans      &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans                       &trans     &kp END        &kp INS   &kp HOME     &kp C_PP    &kp C_VOLUME_UP
+&trans  &trans  &trans  &trans  &trans  &trans                       &trans     &kp PAGE_DOWN  &kp UP    &kp PAGE_UP  &kp C_MUTE  &kp C_VOLUME_DOWN
+&trans  &trans  &trans  &trans  &trans  &trans                       &trans     &kp LEFT       &kp DOWN  &kp RIGHT    &trans      &trans
+&trans  &trans  &trans  &trans  &trans  &trans     &trans    &trans  &trans     &trans         &trans    &trans       &trans      &trans
+                        &trans  &trans  &mkp LCLK  &trans    &trans  &mkp RCLK  &trans         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
