@@ -15,9 +15,9 @@
     combos { compatible = "zmk,combos"; };
 
     behaviors {
-        ESC_or_alt_grave: ESC_or_alt_grave {
+        Esc_AltGrave: Esc_AltGrave {
             compatible = "zmk,behavior-mod-morph";
-            label = "ESC_OR_ALT_GRAVE";
+            label = "ESC_ALTGRAVE";
             bindings = <&kp ESC>, <&kp GRAVE>;
 
             #binding-cells = <0>;
@@ -25,36 +25,36 @@
             keep-mods = <(MOD_LALT)>;
         };
 
-        del_or_to_keypad_lyr: del_or_to_keypad_lyr {
+        del_ToKeypadLyr: del_ToKeypadLyr {
             compatible = "zmk,behavior-mod-morph";
-            label = "DEL_OR_TO_KEYPAD_LYR";
-            bindings = <&kp DEL>, <&to 4>;
+            label = "DEL_TOKEYPADLYR";
+            bindings = <&kp DEL>, <&to 7>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
         };
 
-        mo_rsym_mkp_rclick_or_to_lyr_0: mo_rsym_mkp_rclick_or_to_lyr_0 {
+        moRsymMkpRclick_ToLyr0: moRsymMkpRclick_ToLyr0 {
             compatible = "zmk,behavior-mod-morph";
-            label = "MO_RSYM_MKP_RCLICK_OR_TO_LYR_0";
-            bindings = <&mo_or_mkp 6 RCLK>, <&to 0>;
+            label = "MORSYMMKPRCLICK_TOLYR0";
+            bindings = <&mo_Mkp 5 RCLK>, <&to 0>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
         };
 
-        mo_lsym_mkp_lclick_or_to_lyr_1: mo_lsym_mkp_lclick_or_to_lyr_1 {
+        moLsymMkpLclick_ToLyr0: moLsymMkpLclick_ToLyr0 {
             compatible = "zmk,behavior-mod-morph";
-            label = "MO_LSYM_MKP_LCLICK_OR_TO_LYR_1";
-            bindings = <&mo_or_mkp 5 LCLK>, <&to 1>;
+            label = "MOLSYMMKPLCLICK_TOLYR0";
+            bindings = <&mo_Mkp 4 LCLK>, <&to 0>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
 
-        mo_or_mkp: mo_or_mkp {
+        mo_Mkp: mo_Mkp {
             compatible = "zmk,behavior-hold-tap";
-            label = "MO_OR_MKP";
+            label = "MO_MKP";
             bindings = <&mo>, <&mkp>;
 
             #binding-cells = <2>;
@@ -62,13 +62,22 @@
             flavor = "tap-unless-interrupted";
         };
 
-        mo_lnav_kp_ret_or_to_rnav: mo_lnav_kp_ret_or_to_rnav {
+        moLnavKpRet_ToRnav: moLnavKpRet_ToRnav {
             compatible = "zmk,behavior-mod-morph";
-            label = "MO_LNAV_KP_RET_OR_TO_RNAV";
+            label = "MOLNAVKPRET_TORNAV";
             bindings = <&lt 2 RETURN>, <&to 3>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
+        };
+
+        moRnavKpSpc_ToLnav: moRnavKpSpc_ToLnav {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORNAVKPSPC_TOLNAV";
+            bindings = <&lt 3 SPACE>, <&to 2>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
         };
     };
 
@@ -85,11 +94,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&ESC_or_alt_grave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                                    &kp N6                           &kp N7         &kp N8                 &kp N9   &kp N0         &kp ESC
-&kp TAB            &kp Q   &kp W   &kp F     &kp P     &kp B                                                                     &kp J                            &kp L          &kp U                  &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&kp LCTRL          &kp A   &kp R   &kp S     &kp T     &kp G                                                                     &kp M                            &kp N          &kp E                  &kp I    &kp O          &kp SQT
-&kp LSHIFT         &kp Z   &kp X   &kp C     &kp D     &kp V                            &kp LBKT     &kp RBKT                    &kp K                            &kp H          &kp COMMA              &kp DOT  &kp FSLH       &kp RSHFT
-                                   &kp LALT  &kp LGUI  &mo_lsym_mkp_lclick_or_to_lyr_1  &kp SPACE    &mo_lnav_kp_ret_or_to_rnav  &mo_rsym_mkp_rclick_or_to_lyr_0  &kp BACKSPACE  &del_or_to_keypad_lyr
+&Esc_AltGrave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                               &kp N6                   &kp N7         &kp N8            &kp N9   &kp N0         &kp ESC
+&kp TAB        &kp Q   &kp W   &kp F     &kp P     &kp B                                                                &kp J                    &kp L          &kp U             &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&kp LCTRL      &kp A   &kp R   &kp S     &kp T     &kp G                                                                &kp M                    &kp N          &kp E             &kp I    &kp O          &kp SQT
+&kp LSHIFT     &kp Z   &kp X   &kp C     &kp D     &kp V                    &kp LBKT               &kp RBKT             &kp K                    &kp H          &kp COMMA         &kp DOT  &kp FSLH       &kp RSHFT
+                               &kp LALT  &kp LGUI  &moLsymMkpLclick_ToLyr0  &moRnavKpSpc_ToLnav    &moLnavKpRet_ToRnav  &moRsymMkpRclick_ToLyr0  &kp BACKSPACE  &del_ToKeypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -134,20 +143,7 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        keypad_layer {
-            display-name = "keypad";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans           &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MULTIPLY  &kp KP_DIVIDE
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_PLUS      &kp KP_MINUS
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp KP_NUMBER_0  &kp KP_DOT       &kp CARET        &kp KP_EQUAL     &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans           &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
-
-        left_sym_layer {
+        lsym_layer {
             // ------------------------------------------------------------------------------------------------------------
             // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
             // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
@@ -155,7 +151,7 @@
             // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
             //                     |      |      |      |        |  |       |      |       |       |
 
-            display-name = "left_syms";
+            display-name = "lsym";
             bindings = <
 &kp F1     &kp F2           &kp F3       &kp F4     &kp F5      &kp F6                         &trans  &trans  &trans  &trans  &trans  &trans
 &trans     &trans           &trans       &trans     &trans      &trans                         &trans  &trans  &trans  &trans  &trans  &trans
@@ -167,7 +163,7 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        right_sym_layer {
+        rsym_layer {
             // ------------------------------------------------------------------------------------------------------------
             // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
             // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
@@ -175,13 +171,26 @@
             // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
             //                     |      |      |      |        |  |       |      |       |       |
 
-            display-name = "right_syms";
+            display-name = "rsym";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &kp F7     &kp F8         &kp F9            &kp F10               &kp F11                &kp F12
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans     &trans         &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp COLON              &kp PIPE
 &trans  &trans  &trans  &trans  &trans  &trans                    &kp CARET  &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp MINUS  &kp EQUAL      &kp LESS_THAN     &kp GREATER_THAN      &kp QUESTION           &trans
                         &trans  &trans  &trans  &trans    &trans  &trans     &trans         &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        keypad_layer {
+            display-name = "keypad";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans           &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MULTIPLY  &kp KP_DIVIDE
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_PLUS      &kp KP_MINUS
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp KP_NUMBER_0  &kp KP_DOT       &kp CARET        &kp KP_EQUAL     &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans  &trans           &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
