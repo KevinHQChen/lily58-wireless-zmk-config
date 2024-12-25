@@ -25,40 +25,50 @@
             keep-mods = <(MOD_LALT)>;
         };
 
-        bkspce_or_to_nav_lyr: bkspce_or_to_nav_lyr {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BKSPCE_OR_TO_NAV_LYR";
-            bindings = <&kp BACKSPACE>, <&to 2>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
-        };
-
         del_or_to_keypad_lyr: del_or_to_keypad_lyr {
             compatible = "zmk,behavior-mod-morph";
             label = "DEL_OR_TO_KEYPAD_LYR";
-            bindings = <&kp DEL>, <&to 3>;
+            bindings = <&kp DEL>, <&to 4>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
         };
 
-        mo_right_sym_lyr_or_to_lyr_0: mo_right_sym_lyr_or_to_lyr_0 {
+        mo_rsym_mkp_rclick_or_to_lyr_0: mo_rsym_mkp_rclick_or_to_lyr_0 {
             compatible = "zmk,behavior-mod-morph";
-            label = "MO_RIGHT_SYM_LYR_OR_TO_LYR_0";
-            bindings = <&mo 5>, <&to 0>;
+            label = "MO_RSYM_MKP_RCLICK_OR_TO_LYR_0";
+            bindings = <&mo_or_mkp 6 RCLK>, <&to 0>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
         };
 
-        mo_left_sym_lyr_or_to_lyr_1: mo_left_sym_lyr_or_to_lyr_1 {
+        mo_lsym_mkp_lclick_or_to_lyr_1: mo_lsym_mkp_lclick_or_to_lyr_1 {
             compatible = "zmk,behavior-mod-morph";
-            label = "MO_LEFT_SYM_LYR_OR_TO_LYR_1";
-            bindings = <&mo 4>, <&to 1>;
+            label = "MO_LSYM_MKP_LCLICK_OR_TO_LYR_1";
+            bindings = <&mo_or_mkp 5 LCLK>, <&to 1>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
+        };
+
+        mo_or_mkp: mo_or_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_OR_MKP";
+            bindings = <&mo>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            flavor = "tap-unless-interrupted";
+        };
+
+        mo_lnav_kp_ret_or_to_rnav: mo_lnav_kp_ret_or_to_rnav {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MO_LNAV_KP_RET_OR_TO_RNAV";
+            bindings = <&lt 2 RETURN>, <&to 3>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT)>;
         };
     };
 
@@ -75,11 +85,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&ESC_or_alt_grave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                &kp N6                         &kp N7                 &kp N8                 &kp N9   &kp N0         &kp ESC
-&kp TAB            &kp Q   &kp W   &kp F     &kp P     &kp B                                                 &kp J                          &kp L                  &kp U                  &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&kp LCTRL          &kp A   &kp R   &kp S     &kp T     &kp G                                                 &kp M                          &kp N                  &kp E                  &kp I    &kp O          &kp SQT
-&kp LSHIFT         &kp Z   &kp X   &kp C     &kp D     &kp V                         &mkp LCLK    &mkp RCLK  &kp K                          &kp H                  &kp COMMA              &kp DOT  &kp FSLH       &kp RSHFT
-                                   &kp LALT  &kp LGUI  &mo_left_sym_lyr_or_to_lyr_1  &kp SPACE    &lt 6 RET  &mo_right_sym_lyr_or_to_lyr_0  &bkspce_or_to_nav_lyr  &del_or_to_keypad_lyr
+&ESC_or_alt_grave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                                    &kp N6                           &kp N7         &kp N8                 &kp N9   &kp N0         &kp ESC
+&kp TAB            &kp Q   &kp W   &kp F     &kp P     &kp B                                                                     &kp J                            &kp L          &kp U                  &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&kp LCTRL          &kp A   &kp R   &kp S     &kp T     &kp G                                                                     &kp M                            &kp N          &kp E                  &kp I    &kp O          &kp SQT
+&kp LSHIFT         &kp Z   &kp X   &kp C     &kp D     &kp V                            &mkp LCLK    &mkp RCLK                   &kp K                            &kp H          &kp COMMA              &kp DOT  &kp FSLH       &kp RSHFT
+                                   &kp LALT  &kp LGUI  &mo_lsym_mkp_lclick_or_to_lyr_1  &kp SPACE    &mo_lnav_kp_ret_or_to_rnav  &mo_rsym_mkp_rclick_or_to_lyr_0  &kp BACKSPACE  &del_or_to_keypad_lyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -98,8 +108,21 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        nav_layer {
-            display-name = "nav";
+        lnav_lyr {
+            display-name = "lnav";
+            bindings = <
+&kp C_VOL_UP       &kp C_PP    &kp HOME     &kp INS   &kp END        &trans                       &trans          &trans          &trans          &trans           &trans  &trans
+&kp C_VOLUME_DOWN  &kp C_MUTE  &kp PAGE_UP  &kp UP    &kp PAGE_DOWN  &trans                       &msc SCRL_DOWN  &msc SCRL_UP    &mmv MOVE_UP    &trans           &trans  &trans
+&trans             &trans      &kp LEFT     &kp DOWN  &kp RIGHT      &trans                       &mkp MCLK       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&trans             &trans      &trans       &trans    &trans         &trans     &trans    &trans  &trans          &trans          &trans          &trans           &trans  &trans
+                                            &trans    &trans         &mkp LCLK  &trans    &trans  &mkp RCLK       &trans          &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        rnav_layer {
+            display-name = "rnav";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp END        &kp INS   &kp HOME     &kp C_PP    &kp C_VOLUME_UP
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp PAGE_DOWN  &kp UP    &kp PAGE_UP  &kp C_MUTE  &kp C_VOLUME_DOWN
@@ -159,19 +182,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans                    &kp CARET  &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp MINUS  &kp EQUAL      &kp LESS_THAN     &kp GREATER_THAN      &kp QUESTION           &trans
                         &trans  &trans  &trans  &trans    &trans  &trans     &trans         &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
-
-        mouse_lyr {
-            display-name = "mouse";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                       &trans          &trans          &trans        &trans           &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                       &msc SCRL_DOWN  &msc SCRL_UP    &trans        &trans           &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &mkp MCLK  &trans          &trans          &trans        &trans           &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans     &trans          &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
