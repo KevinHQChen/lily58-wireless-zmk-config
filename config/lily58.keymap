@@ -122,7 +122,7 @@
             bindings = <
 &kp C_VOL_UP       &kp C_PP    &kp HOME     &kp INS   &kp END        &trans                    &trans     &trans          &trans          &trans           &trans  &trans
 &kp C_VOLUME_DOWN  &kp C_MUTE  &kp PAGE_UP  &kp UP    &kp PAGE_DOWN  &trans                    &trans     &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &trans  &trans
-&trans             &trans      &kp LEFT     &kp DOWN  &kp DOWN       &trans                    &mkp MCLK  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&trans             &trans      &kp LEFT     &kp DOWN  &kp RIGHT      &trans                    &mkp MCLK  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
 &trans             &trans      &trans       &trans    &trans         &trans  &trans    &trans  &trans     &trans          &trans          &trans           &trans  &trans
                                             &trans    &trans         &trans  &trans    &trans  &trans     &trans          &trans
             >;
