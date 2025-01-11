@@ -15,7 +15,7 @@
     combos { compatible = "zmk,combos"; };
 
     behaviors {
-        Esc_AltGrave: Esc_AltGrave {
+        esc_AltGrave: esc_AltGrave {
             compatible = "zmk,behavior-mod-morph";
             label = "ESC_ALTGRAVE";
             bindings = <&kp ESC>, <&kp GRAVE>;
@@ -25,7 +25,7 @@
             keep-mods = <(MOD_LALT)>;
         };
 
-        Del_ToKeypadLyr: Del_ToKeypadLyr {
+        del_toKeypadLyr: del_toKeypadLyr {
             compatible = "zmk,behavior-mod-morph";
             label = "DEL_TOKEYPADLYR";
             bindings = <&kp DELETE>, <&to 6>;
@@ -34,25 +34,25 @@
             mods = <(MOD_RSFT)>;
         };
 
-        moRsymMkpRclick_ToLyr0: moRsymMkpRclick_ToLyr0 {
+        moRsymRclick_lclickToLyr0: moRsymRclick_lclickToLyr0 {
             compatible = "zmk,behavior-mod-morph";
-            label = "MORSYMMKPRCLICK_TOLYR0";
-            bindings = <&mo_Mkp 5 RCLK>, <&to 0>;
+            label = "MORSYMRCLICK_LCLICKTOLYR0";
+            bindings = <&mo_mkp 5 RCLK>, <&lclk_toLyr0>;
 
             #binding-cells = <0>;
             mods = <(MOD_RCTL)>;
         };
 
-        moLsymMkpLclick_ToLyr0: moLsymMkpLclick_ToLyr0 {
+        moLsymLclick_rclickToLyr0: moLsymLclick_rclickToLyr0 {
             compatible = "zmk,behavior-mod-morph";
-            label = "MOLSYMMKPLCLICK_TOLYR0";
-            bindings = <&mo_Mkp 4 LCLK>, <&to 0>;
+            label = "MOLSYMLCLICK_RCLICKTOLYR0";
+            bindings = <&mo_mkp 4 LCLK>, <&rclk_toLyr0>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
 
-        mo_Mkp: mo_Mkp {
+        mo_mkp: mo_mkp {
             compatible = "zmk,behavior-hold-tap";
             label = "MO_MKP";
             bindings = <&mo>, <&mkp>;
@@ -62,31 +62,22 @@
             flavor = "tap-unless-interrupted";
         };
 
-        moLnavKpRet_ToRnav: moLnavKpRet_ToRnav {
+        moLnavRet_toRnav: moLnavRet_toRnav {
             compatible = "zmk,behavior-mod-morph";
-            label = "MOLNAVKPRET_TORNAV";
+            label = "MOLNAVRET_TORNAV";
             bindings = <&lt 2 RETURN>, <&to 3>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_RCTL)>;
         };
 
-        moRnavKpSpc_ToLnav: moRnavKpSpc_ToLnav {
+        moRnavSpc_toLnav: moRnavSpc_toLnav {
             compatible = "zmk,behavior-mod-morph";
-            label = "MORNAVKPSPC_TOLNAV";
+            label = "MORNAVSPC_TOLNAV";
             bindings = <&lt 3 SPACE>, <&to 2>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-        };
-
-        Bkspce_Del: Bkspce_Del {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BKSPCE_DEL";
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LCTL)>;
         };
 
         kp_kp: kp_kp {
@@ -97,6 +88,34 @@
             #binding-cells = <2>;
             tapping-term-ms = <300>;
             flavor = "tap-unless-interrupted";
+        };
+
+        to_mkp: to_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TO_MKP";
+            bindings = <&to>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            flavor = "tap-unless-interrupted";
+        };
+
+        lclk_toLyr0: lclk_toLyr0 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LCLK_TOLYR0";
+            bindings = <&mkp LCLK>, <&to 0>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        rclk_toLyr0: rclk_toLyr0 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RCLK_TOLYR0";
+            bindings = <&mkp RCLK>, <&to 0>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
         };
     };
 
@@ -113,11 +132,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&Esc_AltGrave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                               &kp N6                   &kp N7         &kp N8            &kp N9   &kp N0         &kp ESC
-&kp TAB        &kp Q   &kp W   &kp F     &kp P     &kp B                                                                &kp J                    &kp L          &kp U             &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&kp LCTRL      &kp A   &kp R   &kp S     &kp T     &kp G                                                                &kp M                    &kp N          &kp E             &kp I    &kp O          &kp_kp RCTRL SQT
-&kp LSHIFT     &kp Z   &kp X   &kp C     &kp D     &kp V                    &kp LBKT               &kp RBKT             &kp K                    &kp H          &kp COMMA         &kp DOT  &kp FSLH       &kp RSHFT
-                               &kp LALT  &kp LGUI  &moLsymMkpLclick_ToLyr0  &moRnavKpSpc_ToLnav    &moLnavKpRet_ToRnav  &moRsymMkpRclick_ToLyr0  &kp BACKSPACE  &Del_ToKeypadLyr
+&esc_AltGrave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                              &kp N6                      &kp N7         &kp N8            &kp N9   &kp N0         &kp ESC
+&kp TAB        &kp Q   &kp W   &kp F     &kp P     &kp B                                                               &kp J                       &kp L          &kp U             &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&kp LCTRL      &kp A   &kp R   &kp S     &kp T     &kp G                                                               &kp M                       &kp N          &kp E             &kp I    &kp O          &kp_kp RCTRL SQT
+&kp LSHIFT     &kp Z   &kp X   &kp C     &kp D     &kp V                       &kp LBKT             &kp RBKT           &kp K                       &kp H          &kp COMMA         &kp DOT  &kp FSLH       &kp RSHFT
+                               &kp LALT  &kp LGUI  &moLsymLclick_rclickToLyr0  &moRnavSpc_toLnav    &moLnavRet_toRnav  &moRsymRclick_lclickToLyr0  &kp BACKSPACE  &del_toKeypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
