@@ -71,7 +71,7 @@
             bindings = <&lt 2 RETURN>, <&to 3>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_RCTL)>;
         };
 
         rnavSpc_Lnav: rnavSpc_Lnav {
@@ -80,7 +80,7 @@
             bindings = <&lt 3 SPACE>, <&to 2>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_LCTL)>;
         };
 
         rsymRclk_Lyr0: rsymRclk_Lyr0 {
@@ -89,7 +89,7 @@
             bindings = <&moMkpTapUnlessInt 5 RCLK>, <&to 0>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_RCTL)>;
         };
 
         lsymLclk_Lyr0: lsymLclk_Lyr0 {
@@ -98,7 +98,7 @@
             bindings = <&moMkpTapUnlessInt 4 LCLK>, <&to 0>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_LCTL)>;
         };
     };
 
