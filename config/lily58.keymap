@@ -65,15 +65,15 @@
             flavor = "tap-preferred";
         };
 
-        toTrigEsc_mkp: toTrigEsc_mkp {
+        toTrigShft_mkp: toTrigShft_mkp {
             compatible = "zmk,behavior-hold-tap";
-            label = "TOTRIGESC_MKP";
+            label = "TOTRIGSHFT_MKP";
             bindings = <&to>, <&mkp>;
 
             #binding-cells = <2>;
             flavor = "tap-unless-interrupted";
             tapping-term-ms = <300>;
-            hold-trigger-key-positions = <0 11>;
+            hold-trigger-key-positions = <49 36>;
         };
 
         mo_lyr0Rclk: mo_lyr0Rclk {
@@ -115,14 +115,14 @@
         lyr0Rclk: lyr0Rclk {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&toTrigEsc_mkp 0 RCLK>;
+            bindings = <&toTrigShft_mkp 0 RCLK>;
             label = "LYR0RCLK";
         };
 
         lyr0Lclk: lyr0Lclk {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&toTrigEsc_mkp 0 LCLK>;
+            bindings = <&toTrigShft_mkp 0 LCLK>;
             label = "LYR0LCLK";
         };
     };
