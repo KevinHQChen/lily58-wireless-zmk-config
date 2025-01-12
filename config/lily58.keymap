@@ -41,7 +41,7 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <300>;
-            flavor = "tap-unless-interrupted";
+            flavor = "tap-preferred";
         };
 
         toTrigEsc_kp: toTrigEsc_kp {
@@ -62,7 +62,7 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <300>;
-            flavor = "tap-unless-interrupted";
+            flavor = "tap-preferred";
         };
 
         toTrigEsc_mkp: toTrigEsc_mkp {
