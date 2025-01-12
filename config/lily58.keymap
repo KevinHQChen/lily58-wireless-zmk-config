@@ -12,7 +12,21 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        Resc {
+            bindings = <&kp ESC>;
+            key-positions = <31 32>;
+            layers = <5>;
+        };
+
+        Lesc {
+            bindings = <&kp ESC>;
+            key-positions = <28 27>;
+            layers = <4>;
+        };
+    };
 
     behaviors {
         esc_AltGrave: esc_AltGrave {
@@ -25,10 +39,10 @@
             keep-mods = <(MOD_LALT)>;
         };
 
-        del_toKeypadLyr: del_toKeypadLyr {
+        rguiDel_toKeypadLyr: rguiDel_toKeypadLyr {
             compatible = "zmk,behavior-mod-morph";
-            label = "DEL_TOKEYPADLYR";
-            bindings = <&kp DELETE>, <&to 6>;
+            label = "RGUIDEL_TOKEYPADLYR";
+            bindings = <&mt RGUI DEL>, <&to 6>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
@@ -95,6 +109,16 @@
             flavor = "tap-unless-interrupted";
             tapping-term-ms = <300>;
         };
+
+        htBalanced: htBalanced {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTBALANCED";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+        };
     };
 
     macros {
@@ -140,11 +164,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&esc_AltGrave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                &kp N6            &kp N7         &kp N8            &kp N9   &kp N0         &kp ESCAPE
-&kp TAB        &kp Q   &kp W   &kp F     &kp P     &kp B                                                 &kp J             &kp L          &kp U             &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&kp LCTRL      &kp A   &kp R   &kp S     &kp T     &kp G                                                 &kp M             &kp N          &kp E             &kp I    &kp O          &kp SQT
-&kp LSHIFT     &kp Z   &kp X   &kp C     &kp D     &kp V             &kp LBKT           &kp RBKT         &kp K             &kp H          &kp COMMA         &kp DOT  &kp FSLH       &kp RSHFT
-                               &kp LALT  &kp LGUI  &mo_lyr0Lclk 4 0  &mo_lnavSpc 3 0    &mo_rnavRet 2 3  &mo_lyr0Rclk 5 0  &kp BACKSPACE  &del_toKeypadLyr
+&esc_AltGrave  &kp N1  &kp N2  &kp N3     &kp N4    &kp N5                                                &kp N6            &kp N7                      &kp N8                &kp N9   &kp N0         &kp ESCAPE
+&kp TAB        &kp Q   &kp W   &kp F      &kp P     &kp B                                                 &kp J             &kp L                       &kp U                 &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&sk LSHIFT     &kp A   &kp R   &kp S      &kp T     &kp G                                                 &kp M             &kp N                       &kp E                 &kp I    &kp O          &kp SQT
+&kp LSHIFT     &kp Z   &kp X   &kp C      &kp D     &kp V             &kp LBKT           &kp RBKT         &kp K             &kp H                       &kp COMMA             &kp DOT  &kp FSLH       &kp RSHIFT
+                               &kp LCTRL  &kp LALT  &mo_lyr0Lclk 4 0  &mo_lnavSpc 3 0    &mo_rnavRet 2 3  &mo_lyr0Rclk 5 0  &htBalanced RALT BACKSPACE  &rguiDel_toKeypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
