@@ -98,11 +98,11 @@
     };
 
     macros {
-        rnavRet: new_macro {
+        rnavRet: rnavRet {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&toTrigEsc_kp 3 RETURN>;
-            label = "NEW_MACRO";
+            label = "RNAVRET";
         };
 
         lnavSpc: lnav_spc {
@@ -112,11 +112,11 @@
             label = "LNAV_SPC";
         };
 
-        lyr0Rclk: new_macro {
+        lyr0Rclk: lyr0Rclk {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&toTrigEsc_mkp 0 RCLK>;
-            label = "NEW_MACRO";
+            label = "LYR0RCLK";
         };
 
         lyr0Lclk: lyr0Lclk {
