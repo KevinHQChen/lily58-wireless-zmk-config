@@ -34,24 +34,6 @@
             mods = <(MOD_RSFT)>;
         };
 
-        moRsymRclick_lclickToLyr0: moRsymRclick_lclickToLyr0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MORSYMRCLICK_LCLICKTOLYR0";
-            bindings = <&mo_mkp 5 RCLK>, <&lclk_toLyr0>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RCTL)>;
-        };
-
-        moLsymLclick_rclickToLyr0: moLsymLclick_rclickToLyr0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MOLSYMLCLICK_RCLICKTOLYR0";
-            bindings = <&mo_mkp 4 LCLK>, <&rclk_toLyr0>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
         mo_mkp: mo_mkp {
             compatible = "zmk,behavior-hold-tap";
             label = "MO_MKP";
@@ -62,60 +44,73 @@
             flavor = "tap-unless-interrupted";
         };
 
-        moLnavRet_toRnav: moLnavRet_toRnav {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MOLNAVRET_TORNAV";
-            bindings = <&lt 2 RETURN>, <&to 3>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RCTL)>;
-        };
-
-        moRnavSpc_toLnav: moRnavSpc_toLnav {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MORNAVSPC_TOLNAV";
-            bindings = <&lt 3 SPACE>, <&to 2>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        kp_kp: kp_kp {
+        to_escAltGrave: to_escAltGrave {
             compatible = "zmk,behavior-hold-tap";
-            label = "KP_KP";
-            bindings = <&kp>, <&kp>;
+            label = "TO_ESCALTGRAVE";
+            bindings = <&to>, <&esc_AltGrave>;
 
             #binding-cells = <2>;
             tapping-term-ms = <300>;
             flavor = "tap-unless-interrupted";
+            hold-trigger-key-positions = <53 52>;
         };
 
-        to_mkp: to_mkp {
+        to_kpForEsc: to_kpForEsc {
             compatible = "zmk,behavior-hold-tap";
-            label = "TO_MKP";
-            bindings = <&to>, <&mkp>;
+            label = "TO_KPFORESC";
+            bindings = <&to>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <300>;
             flavor = "tap-unless-interrupted";
+            hold-trigger-key-positions = <54 55>;
         };
 
-        lclk_toLyr0: lclk_toLyr0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LCLK_TOLYR0";
-            bindings = <&mkp LCLK>, <&to 0>;
+        mo_rnavRet: mo_rnavRet {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_RNAVRET";
+            bindings = <&mo>, <&rnavRet>;
 
-            #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
         };
 
-        rclk_toLyr0: rclk_toLyr0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RCLK_TOLYR0";
-            bindings = <&mkp RCLK>, <&to 0>;
+        toTrigEsc_Kp: toTrigEsc_Kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TOTRIGESC_KP";
+            bindings = <&to>, <&kp>;
 
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <300>;
+            hold-trigger-key-positions = <0 11>;
+        };
+
+        mo_lnavSpc: mo_lnavSpc {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_LNAVSPC";
+            bindings = <&mo>, <&lnavSpc>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+    };
+
+    macros {
+        rnavRet: new_macro {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            bindings = <&toTrigEsc_Kp 3 RETURN>;
+            label = "NEW_MACRO";
+        };
+
+        lnavSpc: lnav_spc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&toTrigEsc_Kp 2 SPACE>;
+            label = "LNAV_SPC";
         };
     };
 
@@ -132,11 +127,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&esc_AltGrave  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                              &kp N6                      &kp N7         &kp N8            &kp N9   &kp N0         &kp ESC
-&kp TAB        &kp Q   &kp W   &kp F     &kp P     &kp B                                                               &kp J                       &kp L          &kp U             &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&kp LCTRL      &kp A   &kp R   &kp S     &kp T     &kp G                                                               &kp M                       &kp N          &kp E             &kp I    &kp O          &kp_kp RCTRL SQT
-&kp LSHIFT     &kp Z   &kp X   &kp C     &kp D     &kp V                       &kp LBKT             &kp RBKT           &kp K                       &kp H          &kp COMMA         &kp DOT  &kp FSLH       &kp RSHFT
-                               &kp LALT  &kp LGUI  &moLsymLclick_rclickToLyr0  &moRnavSpc_toLnav    &moLnavRet_toRnav  &moRsymRclick_lclickToLyr0  &kp BACKSPACE  &del_toKeypadLyr
+&to_escAltGrave 0 0  &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                              &kp N6          &kp N7         &kp N8            &kp N9   &kp N0         &to_kpForEsc 0 ESCAPE
+&kp TAB              &kp Q   &kp W   &kp F     &kp P     &kp B                                               &kp J           &kp L          &kp U             &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&kp LCTRL            &kp A   &kp R   &kp S     &kp T     &kp G                                               &kp M           &kp N          &kp E             &kp I    &kp O          &kp SQT
+&kp LSHIFT           &kp Z   &kp X   &kp C     &kp D     &kp V           &kp LBKT           &kp RBKT         &kp K           &kp H          &kp COMMA         &kp DOT  &kp FSLH       &kp RSHFT
+                                     &kp LALT  &kp LGUI  &mo_mkp 4 LCLK  &mo_lnavSpc 3 0    &mo_rnavRet 2 3  &mo_mkp 5 RCLK  &kp BACKSPACE  &del_toKeypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
