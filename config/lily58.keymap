@@ -19,6 +19,7 @@
             bindings = <&kp ESC>;
             key-positions = <31 32>;
             layers = <5>;
+            timeout-ms = <200>;
         };
 
         Lesc {
@@ -48,9 +49,9 @@
             tapping-term-ms = <200>;
         };
 
-        htBalanced: htBalanced {
+        kpKpBalanced: kpKpBalanced {
             compatible = "zmk,behavior-hold-tap";
-            label = "HTBALANCED";
+            label = "KPKPBALANCED";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -83,22 +84,14 @@
             mods = <(MOD_LCTL)>;
         };
 
-        rsymRclk_Lyr0: rsymRclk_Lyr0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RSYMRCLK_LYR0";
-            bindings = <&moMkpTapUnlessInt 5 RCLK>, <&to 0>;
+        moMkpBalanced: moMkpBalanced {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOMKPBALANCED";
+            bindings = <&mo>, <&mkp>;
 
-            #binding-cells = <0>;
-            mods = <(MOD_RCTL)>;
-        };
-
-        lsymLclk_Lyr0: lsymLclk_Lyr0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LSYMLCLK_LYR0";
-            bindings = <&moMkpTapUnlessInt 4 LCLK>, <&to 0>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
         };
     };
 
@@ -115,11 +108,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                          &kp N6          &kp N7    &kp N8             &kp N9   &kp N0         &kp DEL
-&kp TAB      &kp Q   &kp W   &kp F     &kp P     &kp B                                           &kp J           &kp L     &kp U              &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&lshiftCaps  &kp A   &kp R   &kp S     &kp T     &kp G                                           &kp M           &kp N     &kp E              &kp I    &kp O          &htBalanced RSHIFT SQT
-&kp LCTRL    &kp Z   &kp X   &kp C     &kp D     &kp V           &kp DELETE       &kp BACKSPACE  &kp K           &kp H     &kp COMMA          &kp DOT  &kp FSLH       &kp RCTRL
-                             &kp LGUI  &kp LALT  &lsymLclk_Lyr0  &rnavSpc_Lnav    &lnavRet_Rnav  &rsymRclk_Lyr0  &kp RALT  &lgui_toKeypadLyr
+&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                     &kp N6                 &kp N7    &kp N8             &kp N9   &kp N0         &trans
+&kp TAB      &kp Q   &kp W   &kp F     &kp P     &kp B                                                      &kp J                  &kp L     &kp U              &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&lshiftCaps  &kp A   &kp R   &kp S     &kp T     &kp G                                                      &kp M                  &kp N     &kp E              &kp I    &kp O          &kpKpBalanced RSHIFT SQT
+&kp LCTRL    &kp Z   &kp X   &kp C     &kp D     &kp V                      &kp DELETE       &kp BACKSPACE  &kp K                  &kp H     &kp COMMA          &kp DOT  &kp FSLH       &kp RCTRL
+                             &kp LGUI  &kp LALT  &moMkpTapUnlessInt 4 LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &moMkpBalanced 5 RCLK  &kp RALT  &lgui_toKeypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -144,7 +137,7 @@
 &kp C_VOL_UP       &kp C_PP  &kp HOME     &kp INS   &kp END        &trans                    &trans          &trans          &trans          &trans           &trans           &trans
 &kp C_VOLUME_DOWN  &trans    &kp PAGE_UP  &kp UP    &kp PAGE_DOWN  &trans                    &msc SCRL_LEFT  &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &msc SCRL_RIGHT  &trans
 &kp C_MUTE         &trans    &kp LEFT     &kp DOWN  &kp RIGHT      &trans                    &mkp MCLK       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans           &trans
-&trans             &trans    &trans       &trans    &trans         &trans  &trans    &trans  &trans          &trans          &trans          &trans           &trans           &trans
+&trans             &trans    &trans       &trans    &trans         &trans  &to 0     &to 0   &trans          &trans          &trans          &trans           &trans           &trans
                                           &trans    &trans         &trans  &trans    &trans  &trans          &trans          &trans
             >;
 
@@ -157,7 +150,7 @@
 &trans  &trans          &trans          &trans          &trans           &trans                             &trans  &kp END        &kp INS   &kp HOME     &kp C_PP  &kp C_VOLUME_UP
 &trans  &msc SCRL_LEFT  &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &msc SCRL_RIGHT                    &trans  &kp PAGE_DOWN  &kp UP    &kp PAGE_UP  &trans    &kp C_VOLUME_DOWN
 &trans  &trans          &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp MCLK                          &trans  &kp LEFT       &kp DOWN  &kp RIGHT    &trans    &kp C_MUTE
-&trans  &trans          &trans          &trans          &trans           &trans           &trans    &trans  &trans  &trans         &trans    &trans       &trans    &trans
+&trans  &trans          &trans          &trans          &trans           &trans           &to 0     &to 0   &trans  &trans         &trans    &trans       &trans    &trans
                                         &trans          &trans           &trans           &trans    &trans  &trans  &trans         &trans
             >;
 
