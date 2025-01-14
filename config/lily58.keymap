@@ -40,16 +40,6 @@
             mods = <(MOD_RCTL)>;
         };
 
-        moMkpTapUI: moMkpTapUI {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOMKPTAPUI";
-            bindings = <&mo>, <&mkp>;
-
-            #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
-            tapping-term-ms = <200>;
-        };
-
         kpKpBalanced: kpKpBalanced {
             compatible = "zmk,behavior-hold-tap";
             label = "KPKPBALANCED";
@@ -94,6 +84,30 @@
             quick-release;
             ignore-modifiers;
         };
+
+        slq: slq {
+            compatible = "zmk,behavior-sticky-key";
+            label = "SLQ";
+            bindings = <&mo>;
+            #binding-cells = <1>;
+            release-after-ms = <500>;
+            quick-release;
+            ignore-modifiers;
+        };
+
+        lsymLclk: lsymLclk {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LSYMLCLK";
+            #binding-cells = <0>;
+            bindings = <&slq 4>, <&mkp MB1>;
+        };
+
+        rsymRclk: rsymRclk {
+            compatible = "zmk,behavior-tap-dance";
+            label = "RSYMRCLK";
+            #binding-cells = <0>;
+            bindings = <&slq 5>, <&mkp RCLK>;
+        };
     };
 
     keymap {
@@ -109,11 +123,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                              &kp N6              &kp N7         &kp N8             &kp N9   &kp N0         &kp DELETE
-&kp TAB      &kp Q   &kp W   &kp F     &kp P     &kp B                                               &kp J               &kp L          &kp U              &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&lshiftCaps  &kp A   &kp R   &kp S     &kp T     &kp G                                               &kp M               &kp N          &kp E              &kp I    &kp O          &kpKpBalanced RSHIFT SQT
-&kp LCTRL    &kp Z   &kp X   &kp C     &kp D     &kp V               &to 0            &to 0          &kp K               &kp H          &kp COMMA          &kp DOT  &kp FSLH       &kp RCTRL
-                             &kp LGUI  &kp LALT  &moMkpTapUI 4 LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &moMkpTapUI 5 RCLK  &kp BACKSPACE  &ralt_toKeypadLyr
+&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                     &kp N6     &kp N7         &kp N8             &kp N9   &kp N0         &kp DELETE
+&kp TAB      &kp Q   &kp W   &kp F     &kp P     &kp B                                      &kp J      &kp L          &kp U              &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&lshiftCaps  &kp A   &kp R   &kp S     &kp T     &kp G                                      &kp M      &kp N          &kp E              &kp I    &kp O          &kpKpBalanced RSHIFT SQT
+&kp LCTRL    &kp Z   &kp X   &kp C     &kp D     &kp V      &to 0            &to 0          &kp K      &kp H          &kp COMMA          &kp DOT  &kp FSLH       &kp RCTRL
+                             &kp LGUI  &kp LALT  &lsymLclk  &rnavSpc_Lnav    &lnavRet_Rnav  &rsymRclk  &kp BACKSPACE  &ralt_toKeypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -189,9 +203,9 @@
             display-name = "rsym";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &kp F7     &kp F8         &kp F9            &kp F10               &kp F11                &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans     &trans         &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp COLON              &kp PIPE
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans     &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp COLON              &kp PIPE
 &trans  &trans  &trans  &trans  &trans  &trans                    &kp CARET  &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp MINUS  &kp EQUAL      &kp LESS_THAN     &kp GREATER_THAN      &kp QUESTION           &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans     &kp MINUS      &kp LESS_THAN     &kp GREATER_THAN      &kp QUESTION           &trans
                         &trans  &trans  &trans  &trans    &trans  &trans     &trans         &trans
             >;
 
