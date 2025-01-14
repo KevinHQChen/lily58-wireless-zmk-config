@@ -17,16 +17,16 @@
 
         Resc {
             bindings = <&kp ESC>;
-            key-positions = <31 32 56>;
-            layers = <0>;
-            timeout-ms = <300>;
+            key-positions = <31 32>;
+            layers = <4>;
+            timeout-ms = <200>;
         };
 
         Lesc {
             bindings = <&kp ESC>;
-            key-positions = <28 27 51>;
-            layers = <0>;
-            timeout-ms = <300>;
+            key-positions = <28 27>;
+            layers = <4>;
+            timeout-ms = <200>;
         };
     };
 
@@ -85,13 +85,14 @@
             ignore-modifiers;
         };
 
-        symRclk: symRclk {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SYMRCLK";
-            #binding-cells = <0>;
-            bindings = <&sl 4>, <&mkp RCLK>;
+        moMkpTapUI: moMkpTapUI {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOMKPTAPUI";
+            bindings = <&mo>, <&mkp>;
 
-            tapping-term-ms = <300>;
+            #binding-cells = <2>;
+            tapping-term-ms = <1000>;
+            flavor = "tap-unless-interrupted";
         };
     };
 
@@ -108,11 +109,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                    &kp N6    &kp N7         &kp N8             &kp N9   &kp N0         &kp DELETE
-&kp TAB      &kp Q   &kp W   &kp F     &kp P     &kp B                                     &kp J     &kp L          &kp U              &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&lshiftCaps  &kp A   &kp R   &kp S     &kp T     &kp G                                     &kp M     &kp N          &kp E              &kp I    &kp O          &kpKpBalanced RSHIFT SQT
-&kp LCTRL    &kp Z   &kp X   &kp C     &kp D     &kp V     &to 0            &to 0          &kp K     &kp H          &kp COMMA          &kp DOT  &kp FSLH       &kp RCTRL
-                             &kp LGUI  &kp LALT  &mkp MB1  &rnavSpc_Lnav    &lnavRet_Rnav  &symRclk  &kp BACKSPACE  &ralt_toKeypadLyr
+&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                              &kp N6              &kp N7         &kp N8             &kp N9   &kp N0         &kp DELETE
+&kp TAB      &kp Q   &kp W   &kp F     &kp P     &kp B                                               &kp J               &kp L          &kp U              &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&lshiftCaps  &kp A   &kp R   &kp S     &kp T     &kp G                                               &kp M               &kp N          &kp E              &kp I    &kp O          &kpKpBalanced RSHIFT SQT
+&kp LCTRL    &kp Z   &kp X   &kp C     &kp D     &kp V               &to 0            &to 0          &kp K               &kp H          &kp COMMA          &kp DOT  &kp FSLH       &kp RCTRL
+                             &kp LGUI  &kp LALT  &moMkpTapUI 4 LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &moMkpTapUI 4 RCLK  &kp BACKSPACE  &ralt_toKeypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
