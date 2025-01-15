@@ -114,6 +114,17 @@
             release-after-ms = <500>;
             ignore-modifiers;
         };
+
+        mkpKp: mkpKp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MKPKP";
+            bindings = <&mkp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            quick-tap-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     keymap {
@@ -129,11 +140,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                     &kp N6     &kp N7        &kp N8           &kp N9   &kp N0         &kp DELETE
-&kp TAB      &kp Q   &kp W   &kp F     &kp P         &kp B                                      &kp J      &kp L         &kp U            &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&lshiftCaps  &kp A   &kp R   &kp S     &kp T         &kp G                                      &kp M      &kp N         &kp E            &kp I    &kp O          &kpKpBalanced RSHIFT SQT
-&lctrlGui    &kp Z   &kp X   &kp C     &kp D         &kp V      &to 0            &kp BACKSPACE  &kp K      &kp H         &kp COMMA        &kp DOT  &kp FSLH       &rctrlGui
-                             &kp LALT  &symTapDance  &mkp LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &mkp RCLK  &symTapDance  &ralt_keypadLyr
+&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                     &kp N6                 &kp N7        &kp N8           &kp N9   &kp N0         &kp DELETE
+&kp TAB      &kp Q   &kp W   &kp F     &kp P         &kp B                                      &kp J                  &kp L         &kp U            &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&lshiftCaps  &kp A   &kp R   &kp S     &kp T         &kp G                                      &kp M                  &kp N         &kp E            &kp I    &kp O          &kpKpBalanced RSHIFT SQT
+&lctrlGui    &kp Z   &kp X   &kp C     &kp D         &kp V      &to 0            &to 0          &kp K                  &kp H         &kp COMMA        &kp DOT  &kp FSLH       &rctrlGui
+                             &kp LALT  &symTapDance  &mkp LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &mkpKp RCLK BACKSPACE  &symTapDance  &ralt_keypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
