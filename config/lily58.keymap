@@ -38,7 +38,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LSHIFTCAPS";
             #binding-cells = <0>;
-            bindings = <&skq LSHIFT>, <&kp CAPS>;
+            bindings = <&skq LSHIFT>, <&caps_word>;
         };
 
         lnavRet_Rnav: lnavRet_Rnav {
