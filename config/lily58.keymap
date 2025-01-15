@@ -17,16 +17,14 @@
 
         Resc {
             bindings = <&kp ESC>;
-            key-positions = <31 32>;
-            layers = <4>;
-            timeout-ms = <200>;
+            key-positions = <31 32 56>;
+            timeout-ms = <300>;
         };
 
         Lesc {
             bindings = <&kp ESC>;
-            key-positions = <28 27>;
-            layers = <4>;
-            timeout-ms = <200>;
+            key-positions = <28 27 51>;
+            timeout-ms = <300>;
         };
     };
 
@@ -119,6 +117,7 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <300>;
+            flavor = "balanced";
         };
     };
 
@@ -161,11 +160,11 @@
         lnav_lyr {
             display-name = "lnav";
             bindings = <
-&kp C_VOL_UP       &kp C_PP  &kp HOME     &kp INS   &kp END        &trans                       &trans          &trans          &trans          &trans           &trans           &trans
-&kp C_VOLUME_DOWN  &trans    &kp PAGE_UP  &kp UP    &kp PAGE_DOWN  &trans                       &msc SCRL_LEFT  &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &msc SCRL_RIGHT  &trans
-&kp C_MUTE         &trans    &kp LEFT     &kp DOWN  &kp RIGHT      &trans                       &mkp MCLK       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans           &trans
-&trans             &trans    &trans       &trans    &trans         &trans     &trans    &trans  &trans          &trans          &trans          &trans           &trans           &trans
-                                          &trans    &trans         &mkp LCLK  &trans    &trans  &trans          &trans          &trans
+&kp C_VOL_UP       &kp C_PP  &kp HOME     &kp INS   &kp END        &trans                    &trans          &trans          &trans          &trans           &trans           &trans
+&kp C_VOLUME_DOWN  &trans    &kp PAGE_UP  &kp UP    &kp PAGE_DOWN  &trans                    &msc SCRL_LEFT  &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &msc SCRL_RIGHT  &trans
+&kp C_MUTE         &trans    &kp LEFT     &kp DOWN  &kp RIGHT      &trans                    &mkp MCLK       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans           &trans
+&trans             &trans    &trans       &trans    &trans         &trans  &trans    &trans  &trans          &trans          &trans          &trans           &trans           &trans
+                                          &trans    &trans         &trans  &trans    &trans  &trans          &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -198,7 +197,7 @@
 &trans     &trans           &trans       &trans    &trans      &trans                         &trans     &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp COLON              &kp PIPE
 &kp GRAVE  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                    &kp CARET  &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES
 &trans     &trans           &trans       &trans    &trans      &trans       &trans    &trans  &trans     &kp MINUS      &kp LESS_THAN     &kp GREATER_THAN      &kp QUESTION           &trans
-                                         &trans    &trans      &trans       &trans    &trans  &trans     &tog 4         &trans
+                                         &trans    &tog 4      &trans       &trans    &trans  &trans     &tog 4         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
