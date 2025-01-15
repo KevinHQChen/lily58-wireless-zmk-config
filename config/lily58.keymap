@@ -117,11 +117,14 @@
             bindings = <&kp COMMA>, <&kp ESCAPE>;
         };
 
-        graveEsc: graveEsc {
-            compatible = "zmk,behavior-tap-dance";
-            label = "GRAVEESC";
+        EscGrave: EscGrave {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ESCGRAVE";
+            bindings = <&kp ESC>, <&kp GRAVE>;
+
             #binding-cells = <0>;
-            bindings = <&kp GRAVE>, <&kp ESCAPE>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
     };
 
@@ -138,7 +141,7 @@
 
             display-name = "colemak_dh";
             bindings = <
-&graveEsc    &kp N1  &kp N2  &kp N3    &kp N4   &kp N5                                     &kp N6                 &kp N7   &kp N8           &kp N9   &kp N0         &kp DELETE
+&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4   &kp N5                                     &kp N6                 &kp N7   &kp N8           &kp N9   &kp N0         &kp DELETE
 &kp TAB      &kp Q   &kp W   &kp F     &kp P    &kp B                                      &kp J                  &kp L    &kp U            &kp Y    &kp SEMICOLON  &kp BACKSLASH
 &lshiftCaps  &kp A   &kp R   &kp S     &kp T    &kp G                                      &kp M                  &kp N    &kp E            &kp I    &kp O          &kpKpBalanced RSHIFT SQT
 &lctrlGui    &kp Z   &kp X   &kp C     &kp D    &kp V      &to 0            &to 0          &kp K                  &kp H    &commaEsc        &kp DOT  &kp FSLH       &rctrlGui
