@@ -18,14 +18,14 @@
         Resc {
             bindings = <&kp ESC>;
             key-positions = <31 32>;
-            timeout-ms = <350>;
+            timeout-ms = <500>;
             layers = <4>;
         };
 
         Lesc {
             bindings = <&kp ESC>;
             key-positions = <28 27>;
-            timeout-ms = <350>;
+            timeout-ms = <500>;
             layers = <4>;
         };
     };
