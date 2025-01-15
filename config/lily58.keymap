@@ -94,6 +94,16 @@
             tapping-term-ms = <1000>;
             flavor = "tap-unless-interrupted";
         };
+
+        kpSlBalanced: kpSlBalanced {
+            compatible = "zmk,behavior-hold-tap";
+            label = "KPSLBALANCED";
+            bindings = <&kp>, <&sl>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+        };
     };
 
     keymap {
@@ -109,11 +119,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                              &kp N6              &kp N7         &kp N8             &kp N9   &kp N0         &kp DELETE
-&kp TAB      &kp Q   &kp W   &kp F     &kp P     &kp B                                               &kp J               &kp L          &kp U              &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&lshiftCaps  &kp A   &kp R   &kp S     &kp T     &kp G                                               &kp M               &kp N          &kp E              &kp I    &kp O          &kpKpBalanced RSHIFT SQT
-&kp LCTRL    &kp Z   &kp X   &kp C     &kp D     &kp V               &to 0            &to 0          &kp K               &kp H          &kp COMMA          &kp DOT  &kp FSLH       &kp RCTRL
-                             &kp LGUI  &kp LALT  &moMkpTapUI 4 LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &moMkpTapUI 4 RCLK  &kp BACKSPACE  &ralt_toKeypadLyr
+&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4                &kp N5                                              &kp N6              &kp N7                &kp N8             &kp N9   &kp N0         &kp DELETE
+&kp TAB      &kp Q   &kp W   &kp F     &kp P                 &kp B                                               &kp J               &kp L                 &kp U              &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&lshiftCaps  &kp A   &kp R   &kp S     &kp T                 &kp G                                               &kp M               &kp N                 &kp E              &kp I    &kp O          &kpKpBalanced RSHIFT SQT
+&kp LCTRL    &kp Z   &kp X   &kp C     &kp D                 &kp V               &to 0            &kp BACKSPACE  &kp K               &kp H                 &kp COMMA          &kp DOT  &kp FSLH       &kp RCTRL
+                             &kp LGUI  &kpSlBalanced LALT 4  &moMkpTapUI 4 LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &moMkpTapUI 4 RCLK  &kpSlBalanced RALT 4  &ralt_toKeypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
