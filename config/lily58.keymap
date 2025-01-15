@@ -128,6 +128,20 @@
             #binding-cells = <0>;
             mods = <(MOD_RCTL|MOD_LCTL)>;
         };
+
+        home: home {
+            compatible = "zmk,behavior-tap-dance";
+            label = "HOME";
+            #binding-cells = <0>;
+            bindings = <&kp HOME>, <&kp LC(HOME)>;
+        };
+
+        end: end {
+            compatible = "zmk,behavior-tap-dance";
+            label = "END";
+            #binding-cells = <0>;
+            bindings = <&kp END>, <&kp LC(END)>;
+        };
     };
 
     keymap {
@@ -146,7 +160,7 @@
 &EscGrave    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                     &kp N6                 &kp N7        &kp N8           &kp N9   &kp N0         &kp DELETE
 &kp TAB      &kp Q   &kp W   &kp F     &kp P         &kp B                                      &kp J                  &kp L         &kp U            &kp Y    &kp SEMICOLON  &kp BACKSLASH
 &skq LSHIFT  &kp A   &kp R   &kp S     &kp T         &kp G                                      &kp M                  &kp N         &kp E            &kp I    &kp O          &rsftSqtCaps
-&lctrlGui    &kp Z   &kp X   &kp C     &kp D         &kp V      &kp HOME         &kp END        &kp K                  &kp H         &commaEsc        &kp DOT  &kp FSLH       &rctrlGui
+&lctrlGui    &kp Z   &kp X   &kp C     &kp D         &kp V      &home            &end           &kp K                  &kp H         &commaEsc        &kp DOT  &kp FSLH       &rctrlGui
                              &kp LALT  &symLyr_lyr0  &mkp LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &mkpKp RCLK BACKSPACE  &symLyr_lyr0  &ralt_keypadLyr
             >;
 
