@@ -66,30 +66,21 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SYMLYR";
             #binding-cells = <0>;
-            bindings = <&slSlow 4>, <&tog 4>;
+            bindings = <&sl 4>, <&tog 4>;
         };
 
         lctrlGui: lctrlGui {
             compatible = "zmk,behavior-tap-dance";
             label = "LCTRLGUI";
             #binding-cells = <0>;
-            bindings = <&kp LCTRL>, <&kp LGUI>;
+            bindings = <&skq LCTRL>, <&kp LGUI>;
         };
 
         rctrlGui: rctrlGui {
             compatible = "zmk,behavior-tap-dance";
             label = "RCTRLGUI";
             #binding-cells = <0>;
-            bindings = <&kp RCTRL>, <&kp LGUI>;
-        };
-
-        slSlow: slSlow {
-            compatible = "zmk,behavior-sticky-key";
-            label = "SLSLOW";
-            bindings = <&mo>;
-            #binding-cells = <1>;
-            release-after-ms = <500>;
-            ignore-modifiers;
+            bindings = <&skq RCTRL>, <&kp LGUI>;
         };
 
         mkpKp: mkpKp {
@@ -120,13 +111,22 @@
             keep-mods = <(MOD_LALT)>;
         };
 
-        rshiftSqtCaps: rshiftSqtCaps {
+        rsftSqtCaps: rsftSqtCaps {
             compatible = "zmk,behavior-mod-morph";
-            label = "RSHIFTSQTCAPS";
+            label = "RSFTSQTCAPS";
             bindings = <&kpKpBalanced RSHIFT SQT>, <&kp CAPS>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
+        };
+
+        symLyr_lyr0: symLyr_lyr0 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SYMLYR_LYR0";
+            bindings = <&symLyr>, <&to 0>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL|MOD_LCTL)>;
         };
     };
 
@@ -143,11 +143,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4   &kp N5                                     &kp N6                 &kp N7   &kp N8           &kp N9   &kp N0         &kp DELETE
-&kp TAB      &kp Q   &kp W   &kp F     &kp P    &kp B                                      &kp J                  &kp L    &kp U            &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&skq LSHIFT  &kp A   &kp R   &kp S     &kp T    &kp G                                      &kp M                  &kp N    &kp E            &kp I    &kp O          &rshiftSqtCaps
-&lctrlGui    &kp Z   &kp X   &kp C     &kp D    &kp V      &to 0            &to 0          &kp K                  &kp H    &commaEsc        &kp DOT  &kp FSLH       &rctrlGui
-                             &kp LALT  &symLyr  &mkp LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &mkpKp RCLK BACKSPACE  &symLyr  &ralt_keypadLyr
+&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                     &kp N6                 &kp N7        &kp N8           &kp N9   &kp N0         &kp DELETE
+&kp TAB      &kp Q   &kp W   &kp F     &kp P         &kp B                                      &kp J                  &kp L         &kp U            &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&skq LSHIFT  &kp A   &kp R   &kp S     &kp T         &kp G                                      &kp M                  &kp N         &kp E            &kp I    &kp O          &rsftSqtCaps
+&lctrlGui    &kp Z   &kp X   &kp C     &kp D         &kp V      &kp HOME         &kp END        &kp K                  &kp H         &commaEsc        &kp DOT  &kp FSLH       &rctrlGui
+                             &kp LALT  &symLyr_lyr0  &mkp LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &mkpKp RCLK BACKSPACE  &symLyr_lyr0  &ralt_keypadLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
