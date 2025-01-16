@@ -159,11 +159,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                                      &kp N6           &kp N7     &kp N8         &kp N9   &kp N0         &kp DELETE
-&kp TAB      &kp Q   &kp W   &kp F     &kp P      &kp B                                       &kp J            &kp L      &kp U          &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&skq LSHIFT  &kp A   &kp R   &kp S     &kp T      &kp G                                       &kp M            &kp N      &kp E          &kp I    &kp O          &rsftSqtCaps
-&lctrlGui    &kp Z   &kp X   &kp C     &kp D      &kp V       &home            &end           &kp K            &kp H      &commaEsc      &kp DOT  &kp FSLH       &rctrlGui
-                             &kp LALT  &mkp LCLK  &lsym_Lyr0  &rnavSpc_Lnav    &lnavRet_Rnav  &rsymBkspc_lyr0  &mkp RCLK  &ralt_kypdLyr
+&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4      &kp N5                                     &kp N6     &kp N7           &kp N8         &kp N9   &kp N0         &kp DELETE
+&kp TAB      &kp Q   &kp W   &kp F     &kp P       &kp B                                      &kp J      &kp L            &kp U          &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&skq LSHIFT  &kp A   &kp R   &kp S     &kp T       &kp G                                      &kp M      &kp N            &kp E          &kp I    &kp O          &rsftSqtCaps
+&lctrlGui    &kp Z   &kp X   &kp C     &kp D       &kp V      &home            &end           &kp K      &kp H            &commaEsc      &kp DOT  &kp FSLH       &rctrlGui
+                             &kp LALT  &lsym_Lyr0  &mkp LCLK  &rnavSpc_Lnav    &lnavRet_Rnav  &mkp RCLK  &rsymBkspc_lyr0  &ralt_kypdLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -222,7 +222,7 @@
 &trans     &trans           &trans       &trans    &trans      &trans                         &trans  &trans  &trans  &trans  &trans  &trans
 &kp GRAVE  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans     &trans           &trans       &trans    &trans      &trans       &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                         &trans    &trans      &tog 4       &trans    &trans  &trans  &trans  &trans
+                                         &trans    &tog 4      &trans       &trans    &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -235,7 +235,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans                    &kp EQUAL  &kp PLUS       &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp COLON              &kp PIPE
 &trans  &trans  &trans  &trans  &trans  &trans                    &kp CARET  &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp UNDER  &kp MINUS      &kp LESS_THAN     &kp GREATER_THAN      &kp QUESTION           &trans
-                        &trans  &trans  &trans  &trans    &trans  &tog 5     &trans         &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans     &tog 5         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
