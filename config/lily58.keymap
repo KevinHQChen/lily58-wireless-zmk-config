@@ -126,18 +126,18 @@
             quick-tap-ms = <200>;
         };
 
-        symBkspc_lyr0: symBkspc_lyr0 {
+        rsymBkspc_lyr0: rsymBkspc_lyr0 {
             compatible = "zmk,behavior-mod-morph";
-            label = "SYMBKSPC_LYR0";
-            bindings = <&moKp 4 BACKSPACE>, <&to 0>;
+            label = "RSYMBKSPC_LYR0";
+            bindings = <&moKp 5 BACKSPACE>, <&to 0>;
 
             #binding-cells = <0>;
             mods = <(MOD_RCTL)>;
         };
 
-        sym_Lyr0: sym_Lyr0 {
+        lsym_Lyr0: lsym_Lyr0 {
             compatible = "zmk,behavior-mod-morph";
-            label = "SYM_LYR0";
+            label = "LSYM_LYR0";
             bindings = <&mo 4>, <&to 0>;
 
             #binding-cells = <0>;
@@ -158,11 +158,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                                     &kp N6          &kp N7     &kp N8         &kp N9   &kp N0         &kp DELETE
-&kp TAB      &kp Q   &kp W   &kp F     &kp P      &kp B                                      &kp J           &kp L      &kp U          &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&skq LSHIFT  &kp A   &kp R   &kp S     &kp T      &kp G                                      &kp M           &kp N      &kp E          &kp I    &kp O          &rsftSqtCaps
-&lctrlGui    &kp Z   &kp X   &kp C     &kp D      &kp V      &home            &end           &kp K           &kp H      &commaEsc      &kp DOT  &kp FSLH       &rctrlGui
-                             &kp LALT  &mkp LCLK  &sym_Lyr0  &rnavSpc_Lnav    &lnavRet_Rnav  &symBkspc_lyr0  &mkp RCLK  &ralt_kypdLyr
+&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                                      &kp N6           &kp N7     &kp N8         &kp N9   &kp N0         &kp DELETE
+&kp TAB      &kp Q   &kp W   &kp F     &kp P      &kp B                                       &kp J            &kp L      &kp U          &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&skq LSHIFT  &kp A   &kp R   &kp S     &kp T      &kp G                                       &kp M            &kp N      &kp E          &kp I    &kp O          &rsftSqtCaps
+&lctrlGui    &kp Z   &kp X   &kp C     &kp D      &kp V       &home            &end           &kp K            &kp H      &commaEsc      &kp DOT  &kp FSLH       &rctrlGui
+                             &kp LALT  &mkp LCLK  &lsym_Lyr0  &rnavSpc_Lnav    &lnavRet_Rnav  &rsymBkspc_lyr0  &mkp RCLK  &ralt_kypdLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
