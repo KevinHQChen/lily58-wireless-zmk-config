@@ -15,10 +15,10 @@
     combos { compatible = "zmk,combos"; };
 
     behaviors {
-        ralt_kypdLyr: ralt_kypdLyr {
+        lgui_kypdLyr: lgui_kypdLyr {
             compatible = "zmk,behavior-mod-morph";
-            label = "RALT_KYPDLYR";
-            bindings = <&kp RALT>, <&to 6>;
+            label = "LGUI_KYPDLYR";
+            bindings = <&kp LGUI>, <&to 6>;
 
             #binding-cells = <0>;
             mods = <(MOD_RCTL)>;
@@ -116,9 +116,9 @@
             bindings = <&kp END>, <&kp LC(END)>;
         };
 
-        moKp: moKp {
+        moKpForBkspc: moKpForBkspc {
             compatible = "zmk,behavior-hold-tap";
-            label = "MOKP";
+            label = "MOKPFORBKSPC";
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
@@ -136,10 +136,10 @@
             mods = <(MOD_LCTL)>;
         };
 
-        lyr0_lyr1: lyr0_lyr1 {
+        rAltLyr0_lyr1: rAltLyr0_lyr1 {
             compatible = "zmk,behavior-mod-morph";
-            label = "LYR0_LYR1";
-            bindings = <&to 0>, <&to 1>;
+            label = "RALTLYR0_LYR1";
+            bindings = <&kpTo RIGHT_ALT 0>, <&to 1>;
 
             #binding-cells = <0>;
             mods = <(MOD_RCTL)>;
@@ -152,6 +152,15 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
+        };
+
+        kpTo: kpTo {
+            compatible = "zmk,behavior-hold-tap";
+            label = "KPTO";
+            bindings = <&kp>, <&to>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
         };
     };
 
@@ -168,11 +177,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4      &kp N5                                      &kp N6             &kp N7      &kp N8         &kp N9   &kp N0         &kp DELETE
-&kp TAB      &kp Q   &kp W   &kp F     &kp P       &kp B                                       &kp J              &kp L       &kp U          &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&skq LSHIFT  &kp A   &kp R   &kp S     &kp T       &kp G                                       &kp M              &kp N       &kp E          &kp I    &kp O          &rsftSqtCaps
-&lctrlGui    &kp Z   &kp X   &kp C     &kp D       &kp V       &home            &end           &kp K              &kp H       &commaEsc      &kp DOT  &kp FSLH       &rctrlGui
-                             &kp LALT  &lsym_Lyr0  &lclk_rclk  &rnavSpc_Lnav    &lnavRet_Rnav  &moKp 5 BACKSPACE  &lyr0_lyr1  &ralt_kypdLyr
+&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4      &kp N5                                      &kp N6                     &kp N7          &kp N8         &kp N9   &kp N0         &kp DELETE
+&kp TAB      &kp Q   &kp W   &kp F     &kp P       &kp B                                       &kp J                      &kp L           &kp U          &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&skq LSHIFT  &kp A   &kp R   &kp S     &kp T       &kp G                                       &kp M                      &kp N           &kp E          &kp I    &kp O          &rsftSqtCaps
+&lctrlGui    &kp Z   &kp X   &kp C     &kp D       &kp V       &home            &end           &kp K                      &kp H           &commaEsc      &kp DOT  &kp FSLH       &rctrlGui
+                             &kp LALT  &lsym_Lyr0  &lclk_rclk  &rnavSpc_Lnav    &lnavRet_Rnav  &moKpForBkspc 5 BACKSPACE  &rAltLyr0_lyr1  &lgui_kypdLyr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
