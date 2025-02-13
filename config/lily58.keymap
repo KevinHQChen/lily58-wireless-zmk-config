@@ -56,9 +56,9 @@
             bindings = <&kp COMMA>, <&kp ESCAPE>;
         };
 
-        EscGrave: EscGrave {
+        EscAltGrave: EscAltGrave {
             compatible = "zmk,behavior-mod-morph";
-            label = "ESCGRAVE";
+            label = "ESCALTGRAVE";
             bindings = <&kp ESC>, <&kp GRAVE>;
 
             #binding-cells = <0>;
@@ -134,11 +134,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&EscGrave    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                                          &kp N6                  &kp N7     &kp N8     &kp N9   &kp N0         &kp ESCAPE
-&kp TAB      &kp Q   &kp W   &kp F     &kp P      &kp B                                           &kp J                   &kp L      &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&skq LSHIFT  &kp A   &kp R   &kp S     &kp T      &kp G                                           &kp M                   &kp N      &kp E      &kp I    &kp O          &rsftSqtCaps
-&lctrlGui    &kp Z   &kp X   &kp C     &kp D      &kp V              &home          &end          &kp K                   &kp H      &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
-                             &kp LALT  &moTo 3 0  &moKpDel 5 DELETE  &lt 4 SPACE    &lt 3 RETURN  &moKpBkspc 6 BACKSPACE  &moTo 3 0  &kp LGUI
+&EscAltGrave  &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                                          &kp N6                  &kp N7     &kp N8     &kp N9   &kp N0         &kp ESCAPE
+&kp TAB       &kp Q   &kp W   &kp F     &kp P      &kp B                                           &kp J                   &kp L      &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&skq LSHIFT   &kp A   &kp R   &kp S     &kp T      &kp G                                           &kp M                   &kp N      &kp E      &kp I    &kp O          &rsftSqtCaps
+&lctrlGui     &kp Z   &kp X   &kp C     &kp D      &kp V              &home          &end          &kp K                   &kp H      &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
+                              &kp LALT  &moTo 3 0  &moKpDel 5 DELETE  &lt 4 SPACE    &lt 3 RETURN  &moKpBkspc 6 BACKSPACE  &moTo 3 0  &kp LGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -160,7 +160,7 @@
         inverted_lyr {
             display-name = "colemak_dh_inv";
             bindings = <
-&EscGrave     &kp N1    &kp N2   &kp N3     &kp N4     &kp N5                                               &trans          &trans     &trans    &trans  &trans  &trans
+&kp ESC       &kp N0    &kp N9   &kp N8     &kp N7     &kp N6                                               &kp N5          &kp N4     &kp N3    &kp N2  &kp N1  &EscAltGrave
 &kp BSLH      &kp SEMI  &kp Y    &kp U      &kp L      &kp J                                                &kp B           &kp P      &kp F     &kp W   &kp Q   &kp TAB
 &rsftSqtCaps  &kp O     &kp I    &kp E      &kp N      &kp M                                                &kp G           &kp T      &kp S     &kp R   &kp A   &kp LSHFT
 &lctrlGui     &kp FSLH  &kp DOT  &commaEsc  &kp H      &kp K                   &end            &home        &kp V           &kp D      &kp C     &kp X   &kp Z   &rctrlGui
