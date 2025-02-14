@@ -89,9 +89,9 @@
             bindings = <&kp END>, <&kp LC(END)>;
         };
 
-        moKpBkspc: moKpBkspc {
+        moKpRight: moKpRight {
             compatible = "zmk,behavior-hold-tap";
-            label = "MOKPBKSPC";
+            label = "MOKPRIGHT";
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
@@ -109,15 +109,26 @@
             tapping-term-ms = <200>;
         };
 
-        moKpDel: moKpDel {
+        moKpLeft: moKpLeft {
             compatible = "zmk,behavior-hold-tap";
-            label = "MOKPDEL";
+            label = "MOKPLEFT";
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             hold-trigger-key-positions = <0 1 5 12 13 14 15 16 17 24 25 26 27 28 29 37 38 39 40 41 2 3 4>;
+        };
+
+        moKp: moKp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOKP";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            flavor = "balanced";
         };
     };
 
@@ -134,11 +145,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&EscAltGrave  &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                                          &kp N6                  &kp N7     &kp N8     &kp N9   &kp N0         &kp ESCAPE
-&kp TAB       &kp Q   &kp W   &kp F     &kp P      &kp B                                           &kp J                   &kp L      &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&skq LSHIFT   &kp A   &kp R   &kp S     &kp T      &kp G                                           &kp M                   &kp N      &kp E      &kp I    &kp O          &rsftSqtCaps
-&lctrlGui     &kp Z   &kp X   &kp C     &kp D      &kp V              &home          &end          &kp K                   &kp H      &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
-                              &kp LALT  &moTo 3 0  &moKpDel 5 DELETE  &lt 4 SPACE    &lt 4 RETURN  &moKpBkspc 6 BACKSPACE  &moTo 3 0  &kp LGUI
+&EscAltGrave  &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                                               &kp N6                  &kp N7     &kp N8     &kp N9   &kp N0         &kp ESCAPE
+&kp TAB       &kp Q   &kp W   &kp F     &kp P      &kp B                                                &kp J                   &kp L      &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&skq LSHIFT   &kp A   &kp R   &kp S     &kp T      &kp G                                                &kp M                   &kp N      &kp E      &kp I    &kp O          &rsftSqtCaps
+&lctrlGui     &kp Z   &kp X   &kp C     &kp D      &kp V               &home            &end            &kp K                   &kp H      &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
+                              &kp LALT  &moTo 3 0  &moKpLeft 5 DELETE  &moKp 4 SPACE    &moKp 4 RETURN  &moKpRight 6 BACKSPACE  &moTo 3 0  &kp LGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -160,11 +171,11 @@
         inverted_lyr {
             display-name = "colemak_dh_inv";
             bindings = <
-&kp ESC   &kp N0    &kp N9   &kp N8     &kp N7  &kp N6                                    &kp N5          &kp N4  &kp N3    &kp N2  &kp N1  &EscAltGrave
-&kp BSLH  &kp SEMI  &kp Y    &kp U      &kp L   &kp J                                     &kp B           &kp P   &kp F     &kp W   &kp Q   &kp TAB
-&trans    &kp O     &kp I    &kp E      &kp N   &kp M                                     &kp G           &kp T   &kp S     &kp R   &kp A   &trans
-&trans    &kp FSLH  &kp DOT  &commaEsc  &kp H   &kp K                   &end      &home   &kp V           &kp D   &kp C     &kp X   &kp Z   &trans
-                             &kp LGUI   &trans  &moKpBkspc 6 BACKSPACE  &trans    &trans  &moKpDel 5 DEL  &trans  &kp LALT
+&kp ESC   &kp N0    &kp N9   &kp N8     &kp N7  &kp N6                                    &kp N5           &kp N4  &kp N3    &kp N2  &kp N1  &EscAltGrave
+&kp BSLH  &kp SEMI  &kp Y    &kp U      &kp L   &kp J                                     &kp B            &kp P   &kp F     &kp W   &kp Q   &kp TAB
+&trans    &kp O     &kp I    &kp E      &kp N   &kp M                                     &kp G            &kp T   &kp S     &kp R   &kp A   &trans
+&trans    &kp FSLH  &kp DOT  &commaEsc  &kp H   &kp K                   &end      &home   &kp V            &kp D   &kp C     &kp X   &kp Z   &trans
+                             &kp LGUI   &trans  &moKpRight 6 BACKSPACE  &trans    &trans  &moKpLeft 5 DEL  &trans  &kp LALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -186,7 +197,7 @@
         mouse_lyr {
             display-name = "mouse";
             bindings = <
-&trans  &trans          &trans          &trans          &trans           &trans                             &trans          &trans          &kp INS         &trans           &trans           &trans
+&trans  &trans          &trans          &trans          &trans           &trans                             &trans          &trans          &trans          &trans           &trans           &trans
 &trans  &msc SCRL_LEFT  &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &msc SCRL_RIGHT                    &msc SCRL_LEFT  &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &msc SCRL_RIGHT  &trans
 &trans  &mkp RCLK       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK                          &mkp LCLK       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp RCLK        &trans
 &trans  &trans          &trans          &trans          &trans           &mkp MCLK        &trans    &trans  &mkp MCLK       &trans          &trans          &trans           &trans           &trans
