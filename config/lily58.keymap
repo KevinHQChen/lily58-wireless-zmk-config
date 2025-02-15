@@ -200,8 +200,8 @@
             bindings = <
 &trans  &trans          &trans          &trans          &trans           &trans                             &trans          &trans          &trans          &trans           &trans           &trans
 &trans  &msc SCRL_LEFT  &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &msc SCRL_RIGHT                    &msc SCRL_LEFT  &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &msc SCRL_RIGHT  &trans
-&trans  &mkp RCLK       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                             &trans          &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp RCLK        &trans
-&trans  &mkp LCLK       &trans          &trans          &mkp MCLK        &trans           &trans    &trans  &trans          &mkp MCLK       &trans          &trans           &mkp LCLK        &trans
+&trans  &mkp LCLK       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                             &trans          &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK        &trans
+&trans  &mkp RCLK       &trans          &trans          &mkp MCLK        &trans           &trans    &trans  &trans          &mkp MCLK       &trans          &trans           &mkp RCLK        &trans
                                         &trans          &trans           &trans           &trans    &trans  &trans          &trans          &trans
             >;
 
