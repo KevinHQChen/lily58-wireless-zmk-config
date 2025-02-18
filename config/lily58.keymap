@@ -98,9 +98,9 @@
             tapping-term-ms = <200>;
         };
 
-        moKp: moKp {
+        moKpReqIdle: moKpReqIdle {
             compatible = "zmk,behavior-hold-tap";
-            label = "MOKP";
+            label = "MOKPREQIDLE";
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
@@ -110,13 +110,24 @@
             require-prior-idle-ms = <125>;
         };
 
-        navOrDefaultLyr: navOrDefaultLyr {
+        navOrDefLyr: navOrDefLyr {
             compatible = "zmk,behavior-mod-morph";
-            label = "NAVORDEFAULTLYR";
+            label = "NAVORDEFLYR";
             bindings = <&moTo 3 0>, <&to 3>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
+        moKp: moKp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOKP";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            flavor = "hold-preferred";
         };
     };
 
@@ -133,11 +144,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&EscAltGrave  &kp N1  &kp N2  &kp N3    &kp N4            &kp N5                                         &kp N6             &kp N7            &kp N8     &kp N9   &kp N0         &kp ESCAPE
-&kp TAB       &kp Q   &kp W   &kp F     &kp P             &kp B                                          &kp J              &kp L             &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&skq LSHIFT   &kp A   &kp R   &kp S     &kp T             &kp G                                          &kp M              &kp N             &kp E      &kp I    &kp O          &rsftSqtCaps
-&lctrlGui     &kp Z   &kp X   &kp C     &kp D             &kp V           &home          &end            &kp K              &kp H             &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
-                              &kp LALT  &navOrDefaultLyr  &moKp 5 DELETE  &lt 4 SPACE    &moKp 4 RETURN  &moKp 5 BACKSPACE  &navOrDefaultLyr  &kp LGUI
+&EscAltGrave  &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                                &kp N6             &kp N7        &kp N8     &kp N9   &kp N0         &kp ESCAPE
+&kp TAB       &kp Q   &kp W   &kp F     &kp P         &kp B                                                 &kp J              &kp L         &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&skq LSHIFT   &kp A   &kp R   &kp S     &kp T         &kp G                                                 &kp M              &kp N         &kp E      &kp I    &kp O          &rsftSqtCaps
+&lctrlGui     &kp Z   &kp X   &kp C     &kp D         &kp V           &home          &end                   &kp K              &kp H         &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
+                              &kp LALT  &navOrDefLyr  &moKp 5 DELETE  &lt 4 SPACE    &moKpReqIdle 4 RETURN  &moKp 5 BACKSPACE  &navOrDefLyr  &kp LGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -159,11 +170,11 @@
         inverted_lyr {
             display-name = "colemak_dh_inv";
             bindings = <
-&kp ESC   &kp N0    &kp N9   &kp N8     &kp N7  &kp N6                                            &kp N5       &kp N4  &kp N3    &kp N2  &kp N1  &EscAltGrave
-&kp BSLH  &kp SEMI  &kp Y    &kp U      &kp L   &kp J                                             &kp B        &kp P   &kp F     &kp W   &kp Q   &kp TAB
-&trans    &kp O     &kp I    &kp E      &kp N   &kp M                                             &kp G        &kp T   &kp S     &kp R   &kp A   &trans
-&trans    &kp FSLH  &kp DOT  &commaEsc  &kp H   &kp K              &end              &home        &kp V        &kp D   &kp C     &kp X   &kp Z   &trans
-                             &kp LGUI   &trans  &moKp 6 BACKSPACE  &moKp 4 RETURN    &lt 4 SPACE  &moKp 6 DEL  &trans  &kp LALT
+&kp ESC   &kp N0    &kp N9   &kp N8     &kp N7  &kp N6                                                          &kp N5              &kp N4  &kp N3    &kp N2  &kp N1  &EscAltGrave
+&kp BSLH  &kp SEMI  &kp Y    &kp U      &kp L   &kp J                                                           &kp B               &kp P   &kp F     &kp W   &kp Q   &kp TAB
+&trans    &kp O     &kp I    &kp E      &kp N   &kp M                                                           &kp G               &kp T   &kp S     &kp R   &kp A   &trans
+&trans    &kp FSLH  &kp DOT  &commaEsc  &kp H   &kp K                     &end                     &home        &kp V               &kp D   &kp C     &kp X   &kp Z   &trans
+                             &kp LGUI   &trans  &moKpReqIdle 6 BACKSPACE  &moKpReqIdle 4 RETURN    &lt 4 SPACE  &moKpReqIdle 6 DEL  &trans  &kp LALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
