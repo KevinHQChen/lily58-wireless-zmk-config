@@ -144,11 +144,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&EscAltGrave  &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                                                &kp N6             &kp N7        &kp N8     &kp N9   &kp N0         &kp ESCAPE
-&kp TAB       &kp Q   &kp W   &kp F     &kp P         &kp B                                                 &kp J              &kp L         &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&skq LSHIFT   &kp A   &kp R   &kp S     &kp T         &kp G                                                 &kp M              &kp N         &kp E      &kp I    &kp O          &rsftSqtCaps
-&lctrlGui     &kp Z   &kp X   &kp C     &kp D         &kp V           &home          &end                   &kp K              &kp H         &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
-                              &kp LALT  &navOrDefLyr  &moKp 5 DELETE  &lt 4 SPACE    &moKpReqIdle 4 RETURN  &moKp 5 BACKSPACE  &navOrDefLyr  &kp LGUI
+&EscAltGrave  &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                                                &kp N6             &kp N7        &kp N8     &kp N9   &kp N0         &kp ESCAPE
+&kp TAB       &kp Q   &kp W   &kp F      &kp P         &kp B                                                 &kp J              &kp L         &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&skq LSHIFT   &kp A   &kp R   &kp S      &kp T         &kp G                                                 &kp M              &kp N         &kp E      &kp I    &kp O          &rsftSqtCaps
+&lctrlGui     &kp Z   &kp X   &kp C      &kp D         &kp V           &home          &end                   &kp K              &kp H         &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
+                              &skq LALT  &navOrDefLyr  &moKp 5 DELETE  &lt 4 SPACE    &moKpReqIdle 4 RETURN  &moKp 5 BACKSPACE  &navOrDefLyr  &kp LGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
