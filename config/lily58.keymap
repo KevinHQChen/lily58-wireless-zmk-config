@@ -124,8 +124,7 @@
             compatible = "zmk,behavior-smart-toggle";
             #binding-cells = <0>;
             bindings = <&kp LALT>, <&kp TAB>;
-
-            ignored-key-positions = <&kp LSHIFT>;
+            ignored-key-positions = <24>;
         };
 
         // Swapper for smart alt+grave
@@ -134,8 +133,7 @@
             compatible = "zmk,behavior-smart-toggle";
             #binding-cells = <0>;
             bindings = <&kp LALT>, <&kp GRAVE>;
-
-            ignored-key-positions = <&kp LSHIFT>;
+            ignored-key-positions = <24>;
         };
     };
 
