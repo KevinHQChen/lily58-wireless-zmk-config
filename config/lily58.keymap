@@ -127,6 +127,14 @@
             quick-tap-ms = <200>;
             flavor = "hold-preferred";
         };
+
+        // Swapper for smart alt+tab
+        swapper: swapper {
+            compatible = "zmk,behavior-smart-toggle";
+            #binding-cells = <0>;
+            bindings = <&kp LALT>, <&kp TAB>;
+            ignored-key-positions = <1>;
+        };
     };
 
     keymap {
