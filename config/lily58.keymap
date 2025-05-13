@@ -142,11 +142,11 @@
 
             display-name = "colemak_dh";
             bindings = <
-&EscAltGrave  &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                                                &kp N6             &kp N7        &kp N8     &kp N9   &kp N0         &kp ESCAPE
-&kp TAB       &kp Q   &kp W   &kp F      &kp P         &kp B                                                 &kp J              &kp L         &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&skq LSHIFT   &kp A   &kp R   &kp S      &kp T         &kp G                                                 &kp M              &kp N         &kp E      &kp I    &kp O          &rsftSqtCaps
-&lctrlGui     &kp Z   &kp X   &kp C      &kp D         &kp V           &home          &end                   &kp K              &kp H         &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
-                              &skq LALT  &navOrDefLyr  &moKp 5 DELETE  &lt 4 SPACE    &moKpReqIdle 4 RETURN  &moKp 5 BACKSPACE  &navOrDefLyr  &kp LGUI
+&kp ESCAPE   &kp N1  &kp N2  &kp N3     &kp N4        &kp N5                                                &kp N6             &kp N7        &kp N8     &kp N9   &kp N0         &kp ESCAPE
+&kp TAB      &kp Q   &kp W   &kp F      &kp P         &kp B                                                 &kp J              &kp L         &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
+&skq LSHIFT  &kp A   &kp R   &kp S      &kp T         &kp G                                                 &kp M              &kp N         &kp E      &kp I    &kp O          &rsftSqtCaps
+&lctrlGui    &kp Z   &kp X   &kp C      &kp D         &kp V           &home          &end                   &kp K              &kp H         &commaEsc  &kp DOT  &kp FSLH       &rctrlGui
+                             &skq LALT  &navOrDefLyr  &moKp 5 DELETE  &lt 4 SPACE    &moKpReqIdle 4 RETURN  &moKp 5 BACKSPACE  &navOrDefLyr  &kp LGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -214,11 +214,11 @@
 
             display-name = "sym";
             bindings = <
-&kp F1     &kp F2           &kp F3       &kp F4     &kp F5      &kp F6                         &kp F7          &kp F8         &kp F9            &kp F10               &kp F11                &kp F12
-&trans     &trans           &trans       &kp TILDE  &trans      &trans                         &kp EQUAL       &kp PLUS       &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp COLON              &kp PIPE
-&kp GRAVE  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH   &kp DOLLAR  &kp PERCENT                    &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES
-&trans     &kp LA(Z)        &kp LA(X)    &kp LA(C)  &trans      &trans       &trans    &trans  &kp UNDERSCORE  &kp MINUS      &kp LESS_THAN     &kp GREATER_THAN      &kp QUESTION           &trans
-                                         &trans     &trans      &trans       &trans    &trans  &trans          &trans         &trans
+&kp LA(GRAVE)  &kp F2           &kp F3       &kp F4     &kp F5      &kp F6                         &kp F7          &kp F8         &kp F9            &kp F10               &kp F11                &kp F12
+&kp LA(TAB)    &kp F1           &trans       &kp TILDE  &trans      &trans                         &kp EQUAL       &kp PLUS       &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp COLON              &kp PIPE
+&kp GRAVE      &kp EXCLAMATION  &kp AT_SIGN  &kp HASH   &kp DOLLAR  &kp PERCENT                    &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES
+&trans         &kp LA(Z)        &kp LA(X)    &kp LA(C)  &trans      &trans       &trans    &trans  &kp UNDERSCORE  &kp MINUS      &kp LESS_THAN     &kp GREATER_THAN      &kp QUESTION           &trans
+                                             &trans     &trans      &trans       &trans    &trans  &trans          &trans         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -227,8 +227,8 @@
         isym_lyr {
             display-name = "isym";
             bindings = <
-&kp F12            &kp F11                &kp F10               &kp F9         &kp F8         &kp F7                            &kp F6       &kp F5      &kp F4     &kp F3       &kp F2           &kp F1
-&kp PIPE           &kp COLON              &kp RBKT              &kp LBKT       &kp PLUS       &kp EQUAL                         &trans       &trans      &kp TILDE  &trans       &trans           &trans
+&kp F12            &kp F11                &kp F10               &kp F9         &kp F8         &kp F7                            &kp F6       &kp F5      &kp F4     &kp F3       &kp F2           &kp LA(GRAVE)
+&kp PIPE           &kp COLON              &kp RBKT              &kp LBKT       &kp PLUS       &kp EQUAL                         &trans       &trans      &kp TILDE  &trans       &kp F1           &kp LA(TAB)
 &kp DOUBLE_QUOTES  &kp RIGHT_PARENTHESIS  &kp LEFT_PARENTHESIS  &kp ASTERISK   &kp AMPERSAND  &kp CARET                         &kp PERCENT  &kp DOLLAR  &kp POUND  &kp AT_SIGN  &kp EXCLAMATION  &kp GRAVE
 &trans             &kp QUESTION           &kp GREATER_THAN      &kp LESS_THAN  &kp MINUS      &kp UNDERSCORE  &trans    &trans  &trans       &trans      &kp LA(C)  &kp LA(X)    &kp LA(Z)        &trans
                                                                 &trans         &trans         &trans          &trans    &trans  &trans       &trans      &trans
