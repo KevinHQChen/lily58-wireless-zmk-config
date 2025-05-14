@@ -125,7 +125,7 @@
             #binding-cells = <0>;
             bindings = <&kp LALT>, <&kp TAB>;
 
-            ignored-key-positions = <12>;
+            ignored-key-positions = <16>;
         };
 
         // Swapper for smart alt+grave
@@ -143,7 +143,7 @@
             #binding-cells = <0>;
             bindings = <&kp LALT>, <&kp TAB>;
 
-            ignored-key-positions = <23>;
+            ignored-key-positions = <19>;
             label = "INVALTTAB";
         };
 
@@ -256,7 +256,7 @@
             display-name = "isym";
             bindings = <
 &kp F12            &kp F11                &kp F10               &kp F9         &kp F8         &kp F7                            &kp F6       &kp F5       &kp F4         &kp F3       &kp F2           &kp F1
-&kp PIPE           &kp COLON              &kp RBKT              &kp LBKT       &kp PLUS       &kp EQUAL                         &trans       &kp LS(TAB)  &kp LS(GRAVE)  &invAltTab   &altGrave        &kp LS(TAB)
+&kp PIPE           &kp COLON              &kp RBKT              &kp LBKT       &kp PLUS       &kp EQUAL                         &trans       &kp LS(TAB)  &kp LS(GRAVE)  &invAltTab   &invAltGrave     &kp LS(TAB)
 &kp DOUBLE_QUOTES  &kp RIGHT_PARENTHESIS  &kp LEFT_PARENTHESIS  &kp ASTERISK   &kp AMPERSAND  &kp CARET                         &kp PERCENT  &kp DOLLAR   &kp POUND      &kp AT_SIGN  &kp EXCLAMATION  &kp GRAVE
 &trans             &kp QUESTION           &kp GREATER_THAN      &kp LESS_THAN  &kp MINUS      &kp UNDERSCORE  &trans    &trans  &trans       &kp TILDE    &mt LALT C     &mt LALT X   &mt LALT Z       &trans
                                                                 &trans         &trans         &trans          &trans    &trans  &trans       &trans       &trans
